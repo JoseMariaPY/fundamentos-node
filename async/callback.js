@@ -3,7 +3,7 @@ require('dotenv').config()
 function hello(name, firstCallBack) {
     setTimeout(function (){
         console.log(`Hello:  ${name}`);
-        firstCallBack();
+        firstCallBack(name);
     }, 1000);
 }
 
@@ -19,8 +19,8 @@ console.log('Inciando ..')
 let name = process.env.NAME || 'Sin nombre';
 let lastName = process.env.LAST_NAME || 'Sin apellido';
 
-hello(name + " "+ lastName, function(){
-    by(name + " " +lastName, function(){
+hello(name + " "+ lastName, function(fullName){
+    by(fullName, function(){
         console.log('Terminado proceso ..')
     });
 });
